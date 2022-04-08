@@ -5915,6 +5915,24 @@ MonoBehaviour:
   soundBox: {fileID: 1679583102}
   soundTarget: {fileID: 1922509475}
   soundGameover: {fileID: 624987183}
+  hintsPanel: {fileID: 2096473974}
+  hintImage: {fileID: 2104900706}
+  hints:
+  - {fileID: 21300000, guid: e3984f30fb90d47fda0f531ae9a0d2a9, type: 3}
+  - {fileID: 21300000, guid: 1487e180d6022439487b25800b15b785, type: 3}
+  - {fileID: 21300000, guid: da43657d8efd94aef95e0b9dfaf79d7f, type: 3}
+  - {fileID: 21300000, guid: 57e104fdfc0af495396b90488540de22, type: 3}
+  - {fileID: 21300000, guid: e188975daf16e4e39bce5008bbf25c50, type: 3}
+  - {fileID: 21300000, guid: c207c1d6f24a24d21a247d3f2bfe3253, type: 3}
+  - {fileID: 21300000, guid: d41d1a322005f4773bd22afee0371ffe, type: 3}
+  - {fileID: 21300000, guid: 217e9fc12d9cf40618d2cb303596b7b6, type: 3}
+  - {fileID: 21300000, guid: a09fd786f28eb41069944f36e556fe7a, type: 3}
+  - {fileID: 21300000, guid: bc3ab8af781c44a3a98c33250e3bbf02, type: 3}
+  - {fileID: 21300000, guid: 603f617b0a91a43f3955fff233a6e556, type: 3}
+  - {fileID: 21300000, guid: 603f617b0a91a43f3955fff233a6e556, type: 3}
+  - {fileID: 21300000, guid: 603f617b0a91a43f3955fff233a6e556, type: 3}
+  - {fileID: 21300000, guid: 603f617b0a91a43f3955fff233a6e556, type: 3}
+  - {fileID: 21300000, guid: 603f617b0a91a43f3955fff233a6e556, type: 3}
   debugWithArrowKeys: 1
 --- !u!114 &1560295246
 MonoBehaviour:

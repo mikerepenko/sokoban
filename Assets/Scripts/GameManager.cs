@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using AppodealAds.Unity.Api;
+using AppodealAds.Unity.Common;
 
 public class GameManager : MonoBehaviour
 {
@@ -50,6 +52,9 @@ public class GameManager : MonoBehaviour
     public AudioSource soundTarget;
     public AudioSource soundGameover;
 
+    [SerializeField] GameObject hintsPanel;
+    [SerializeField] Image hintImage;
+    [SerializeField] Sprite[] hints;
 
     int startPosX = -4;
     int startPosY = 4;
@@ -77,6 +82,13 @@ public class GameManager : MonoBehaviour
 
     Vector2 startPos;
     float startTime;
+
+    private void Awake()
+    {
+        Appodeal.setLogLevel(Appodeal.LogLevel.Verbose);
+        Appodeal.initialize("18118a312386040e13c03ebb805e11ae37027d8929ae4b60", Appodeal.INTERSTITIAL | Appodeal.REWARDED_VIDEO, true);
+        Appodeal.setTesting(false);
+    }
 
     void Start()
     {
@@ -494,7 +506,11 @@ public class GameManager : MonoBehaviour
     {
         soundGameover.Play();
         Replay();
-        admobManager.ShowInterstitial();
+        if (Appodeal.isLoaded(Appodeal.INTERSTITIAL))
+        {
+            Appodeal.show(Appodeal.INTERSTITIAL);
+        }
+        //admobManager.ShowInterstitial();
     }
 
     public void Open()
@@ -515,8 +531,20 @@ public class GameManager : MonoBehaviour
 
     public void RewardVideo()
     {
-        admobManager.ShowRewarded(numLevel);
+        if (Appodeal.isLoaded(Appodeal.REWARDED_VIDEO))
+        {
+            Appodeal.show(Appodeal.REWARDED_VIDEO);
+        }
+
+        ShowHints();
+        //admobManager.ShowRewarded(numLevel);
         //IronSource.Agent.showRewardedVideo();
+    }
+
+    void ShowHints()
+    {
+        hintsPanel.SetActive(true);
+        hintImage.GetComponent<Image>().sprite = hints[numLevel];
     }
 
     void RewardedVideoAdClosedEvent()
